@@ -19,6 +19,8 @@ class testBase(unittest.TestCase):
 
   def test_Basic(self):
     ###  A test case
+    self.assertFalse(os.path.isdir('a'))
     makepath.makedirs('a')
+    self.assertTrue(os.path.isdir('a'))
 
 unittest.main()
