@@ -36,9 +36,15 @@ class TestBase(unittest.TestCase):
 
   def test_AbsPath(self):
     "make dir with absolute path"
-    dir = os.path.join(os.getcwd(), str(os.getpid()))
-    self.assertFalse(os.path.isdir(dir))
-    makepath.makedirs(dir)
-    self.assertTrue(os.path.isdir(dir))
+    dirname = os.path.join(os.getcwd(), str(os.getpid()))
+    self.assertFalse(os.path.isdir(dirname))
+    makepath.makedirs(dirname)
+    self.assertTrue(os.path.isdir(dirname))
+
+  def test_DirWithBlanks(self):
+    "make dir with embedded blanks"
+    self.assertFalse(os.path.isdir('hello world'))
+    makepath.makedirs('hello world')
+    self.assertTrue(os.path.isdir('hello world'))
 
 unittest.main()
