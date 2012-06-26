@@ -5,6 +5,7 @@ sys.path.append('..')
 import os
 import unittest
 import makepath
+import xmlrunner
 
 class TestBase(unittest.TestCase):
   @classmethod
@@ -57,4 +58,4 @@ class TestBase(unittest.TestCase):
     for dirname in 'a','b','c','d':
       self.assertTrue(os.path.isdir(dirname))
 
-unittest.main()
+unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'))
