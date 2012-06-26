@@ -1,2 +1,4 @@
+import os
+
 def makedirs(dir):
-  pass
+  os.mkdir(dir)
