@@ -34,4 +34,11 @@ class TestBase(unittest.TestCase):
     makepath.makedirs('a/b/c/d')
     self.assertTrue(os.path.isdir('a/b/c/d'))
 
+  def test_AbsPath(self):
+    "make dir with absolute path"
+    dir = os.path.join(os.getcwd(), str(os.getpid()))
+    self.assertFalse(os.path.isdir(dir))
+    makepath.makedirs(dir)
+    self.assertTrue(os.path.isdir(dir))
+
 unittest.main()
