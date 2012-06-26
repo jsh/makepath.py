@@ -1,0 +1,2 @@
+def makedirs(dir):
+  pass
