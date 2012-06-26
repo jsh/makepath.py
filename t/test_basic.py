@@ -1,5 +1,6 @@
 " tests of basic makepath functionality"
 import sys
+sys.path.append('.')
 sys.path.append('..')
 import os
 import unittest
