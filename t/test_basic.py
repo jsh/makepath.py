@@ -47,4 +47,14 @@ class TestBase(unittest.TestCase):
     makepath.makedirs('hello world')
     self.assertTrue(os.path.isdir('hello world'))
 
+  def test_MultipleDirs(self):
+    "make a list of directories"
+    for dirname in 'a','b','c','d':
+      self.assertFalse(os.path.isdir(dirname))
+
+    makepath.makedirs('a','b','c','d')
+
+    for dirname in 'a','b','c','d':
+      self.assertTrue(os.path.isdir(dirname))
+
 unittest.main()

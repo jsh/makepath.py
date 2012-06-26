@@ -1,8 +1,12 @@
 import os
 
-def makedirs(dir):
-  if (not dir) or os.path.isdir(dir):
+def makedirs(*dirlist):
+  for dirname in dirlist:
+    makeOneDir(dirname)
+
+def makeOneDir(dirname):
+  if (not dirname) or os.path.isdir(dirname):
     return
-  dirname = os.path.dirname(dir)
-  makedirs(dirname)
-  os.mkdir(dir)
+  parent = os.path.dirname(dirname)
+  makedirs(parent)
+  os.mkdir(dirname)
