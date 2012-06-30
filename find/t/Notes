@@ -1,0 +1,22 @@
+### find <DIRNAME> -type f -name <REGEX>
+
+# mkdir -p dr_livingston/I; touch dr_livingston/I/presume
+# touch anomaly  dr_livingston/anomaly dr_livingston/I/anomaly
+# mkdir man-who-wasnt-there
+
+## don't see things that aren't there
+# findfile . purplecow
+# findfile . man-who-wasnt-there
+
+## see something that is there
+# findfile dr_livingston/I presume
+# findfile dr_livingston presume
+# findfile . presume
+# findfile $PWD presume
+
+## find more than one
+# findfile . anomaly
+
+## find a regex
+# findfile . pre*
+# findfile . *[wxyz]
